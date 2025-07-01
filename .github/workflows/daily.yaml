@@ -3,7 +3,7 @@ name: Daily Habit Sender
 on:
   schedule:
     - cron: '2 0 * * *' # UTC time, adjust for your timezone
-    worfklow_dispatch:
+    workflow_dispatch:
 
 jobs:
   run:
