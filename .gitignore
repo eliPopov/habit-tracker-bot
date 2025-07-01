@@ -1,0 +1,8 @@
+venv/
+.venv/
+__pycache__
+*.pyc
+twilio_config.py
+habit_data.db
+.env
+.DS_Store
