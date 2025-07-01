@@ -1,0 +1,24 @@
+name: Daily Habit Sender
+
+on:
+  schedule:
+    - cron: '2 0 * * *' # UTC time, adjust for your timezone
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run scheduler
+        env:
+          ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          YOUR_NUMBER: ${{ secrets.YOUR_NUMBER }}
+          TWILIO_NUMBER: ${{ secrets.TWILIO_NUMBER }}
+        run: python scheduler.py
