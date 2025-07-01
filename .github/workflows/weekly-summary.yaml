@@ -1,0 +1,25 @@
+name: Weekly Habit Summary
+
+on:
+  schedule:
+    - cron: '0 9 * * 0' # Every Sunday at 9:00 UTC
+  workflow_dispatch:
+
+jobs:
+  summary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run weekly summary
+        env:
+          ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          YOUR_NUMBER: ${{ secrets.YOUR_NUMBER }}
+          TWILIO_NUMBER: ${{ secrets.TWILIO_NUMBER }}
+        run: python weekly_summary.py
