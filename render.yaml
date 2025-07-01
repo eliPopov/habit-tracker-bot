@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: habit-tracker-web
+    env: python
+    buildCommand: ''
+    startCommand: python app.py
+    plan: free
+    envVars:
+      - key: ACCOUNT_SID
+        fromEnvVar: ACCOUNT_SID
+      - key: AUTH_TOKEN
+        fromEnvVar: AUTH_TOKEN
+      - key: YOUR_NUMBER
+        fromEnvVar: YOUR_NUMBER
+      - key: TWILIO_NUMBER
+        fromEnvVar: TWILIO_NUMBER

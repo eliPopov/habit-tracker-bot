@@ -1,6 +1,11 @@
 from apscheduler.schedulers.background import BackgroundScheduler
 from twilio.rest import Client
-from twilio_config import *
+import os
+
+ACCOUNT_SID = os.environ.get("ACCOUNT_SID")
+AUTH_TOKEN = os.environ.get("AUTH_TOKEN")
+TWILIO_NUMBER = os.environ.get("TWILIO_NUMBER")
+YOUR_NUMBER = os.environ.get("YOUR_NUMBER")
 import time
 
 client = Client(ACCOUNT_SID, AUTH_TOKEN)
