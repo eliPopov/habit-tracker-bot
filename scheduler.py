@@ -22,10 +22,4 @@ def send_daily_checklist():
         to=YOUR_NUMBER
     )
 
-scheduler = BackgroundScheduler()
-scheduler.add_job(send_daily_checklist, 'cron', hour=9, minute=0)  # 9:00 AM
-scheduler.start()
-
-# Keep alive
-while True:
-    time.sleep(60)
+send_daily_checklist() 
