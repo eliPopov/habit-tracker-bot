@@ -2,8 +2,8 @@ name: Daily Habit Sender
 
 on:
   schedule:
-    - cron: '2 0 * * *' # UTC time, adjust for your timezone
-    workflow_dispatch:
+    - cron: '2 0 * * *'
+  workflow_dispatch: # ✅ Not indented under schedule
 
 jobs:
   run:
